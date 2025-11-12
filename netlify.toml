@@ -1,9 +1,9 @@
 [template.environment]
-  GQL_HOST = "headleswoo.lionssolution.com"
-  NUXT_IMAGE_DOMAINS = "headleswoo.lionssolution.com"
+  GQL_HOST = "evelatus.lionssolution.com"
+  NUXT_IMAGE_DOMAINS = "evelatus.lionssolution.com"
 
 [build]
   command = "nuxt generate"
 
 [images]
-  remote_images = ["https://headleswoo.lionssolution.com/wp-content/uploads/.*"]
+  remote_images = ["https://evelatus.lionssolution.com/wp-content/uploads/.*"]
