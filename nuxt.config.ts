@@ -1,24 +1,22 @@
 export default defineNuxtConfig({
 
-  // Get all the pages, components, composables and plugins from the parent theme
+  // inherit base theme
   extends: ['./woonuxt_base'],
 
   components: [{ path: './components', pathPrefix: false }],
 
-  /**
-   * Depending on your servers capabilities, you may need to adjust the following settings.
-   * It will affect the build time but also increase the reliability of the build process.
-   * If you have a server with a lot of memory and CPU, you can remove the following settings.
-   * @property {number} concurrency - How many pages to prerender at once
-   * @property {number} interval - How long to wait between prerendering pages
-   * @property {boolean} failOnError - This stops the build from failing but the page will not be statically generated
-   */
+  // ✅ enable live server rendering instead of static generation
+  ssr: true,
+
   nitro: {
-    prerender: {
-      concurrency: 10,
-      interval: 1000,
-      failOnError: false,
-    },
-    minify: true
+    preset: 'node-server', // good default for most SSR hosts (Netlify/Vercel/Render/custom)
+    minify: true,
+    // remove the prerender block entirely
   },
-});
+
+  runtimeConfig: {
+    public: {
+      GQL_HOST: process.env.GQL_HOST, // ensure GraphQL endpoint is available at runtime
+    }
+  },
+})
