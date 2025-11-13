@@ -3,7 +3,8 @@
   NUXT_IMAGE_DOMAINS = "evelatus.lionssolution.com"
 
 [build]
-  command = "nuxt generate"
+  command = "nuxt build"
+  publish = ".netlify/publish"
 
 [images]
   remote_images = ["https://evelatus.lionssolution.com/wp-content/uploads/.*"]
